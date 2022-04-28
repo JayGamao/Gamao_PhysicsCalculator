@@ -37,22 +37,30 @@ public class methods {
     public void saveArea(gs g,methods m,Context context){
         switch (g.getsave()){
             case 1:
-                Log.d(TAG, "triangle");
-                g.setsave(1);
+                g.setformulas(1);
                 break;
             case 2:
+                g.setformulas(2);
+
                 break;
             case 3:
+                g.setformulas(3);
                 break;
             case 4:
+                g.setformulas(4);
                 break;
             case 5:
+                g.setformulas(5);
+
                 break;
             case 6:
+                g.setformulas(6);
                 break;
             case 7:
+                g.setformulas(7);
                 break;
             case 8:
+                g.setformulas(8);
                 break;
 
 
@@ -62,61 +70,52 @@ public class methods {
 
         switch (g.getformulas()) {
             case 1:
-                Log.d(TAG, "formula 1");
-                break;
+
+                try{ g.setradius(Double.parseDouble(firstTexts.getText().toString()));
+                    g.setanswer(g.getradius() * g.getradius() * Math.PI);
+
+                } catch(NumberFormatException ex){
+
+                }                break;
             case 2:
                 g.setanswer(g.getbase() * g.getheight() * 0.5);
-                g.setbase(Double.parseDouble(firstTexts.getText().toString()));
-                g.setheight(Double.parseDouble(secondTexts.getText().toString()));
-                firstTexts.setHint("Base");
-                secondTexts.setHint("Height");
-                g.setwhatshape("Triangle");
+                try{ g.setbase(Double.parseDouble(firstTexts.getText().toString())); } catch(NumberFormatException ex){ }
+                try{ g.setheight(Double.parseDouble(secondTexts.getText().toString())); } catch(NumberFormatException ex){ }
+
                 break;
             case 3:
+                try{ g.setmajoraxis(Double.parseDouble(firstTexts.getText().toString())); } catch(NumberFormatException ex){ }
+                try{ g.setminoraxis(Double.parseDouble(secondTexts.getText().toString())); } catch(NumberFormatException ex){ }
+
                 g.setanswer(g.getmajoraxis() * g.getminoraxis() * Math.PI);
-                g.setmajoraxis(Double.parseDouble(firstTexts.getText().toString()));
-                g.setminoraxis(Double.parseDouble(secondTexts.getText().toString()));
-                firstTexts.setHint("Major Axis");
-                secondTexts.setHint("Minor Axis");
-                g.setwhatshape("Ellipse");
                 break;
             case 4:
+                try{ g.setlength(Double.parseDouble(firstTexts.getText().toString())); } catch(NumberFormatException ex){ }
+                try{ g.setwidth(Double.parseDouble(secondTexts.getText().toString())); } catch(NumberFormatException ex){ }
                 g.setanswer(g.getlength() * g.getwidth());
-                g.setlength(Double.parseDouble(firstTexts.getText().toString()));
-                g.setwidth(Double.parseDouble(secondTexts.getText().toString()));
-                firstTexts.setHint("Length");
-                secondTexts.setHint("Width");
-                g.setwhatshape("Rectangle");
+
                 break;
             case 5:
+                try{ g.setradius(Double.parseDouble(firstTexts.getText().toString())); } catch(NumberFormatException ex){ }
+                try{ g.setheight(Double.parseDouble(secondTexts.getText().toString())); } catch(NumberFormatException ex){ }
                 g.setanswer(g.getradius() * g.getradius() * g.getheight() * Math.PI);
-                g.setradius(Double.parseDouble(firstTexts.getText().toString()));
-                g.setheight(Double.parseDouble(secondTexts.getText().toString()));
-                firstTexts.setHint("Radius");
-                secondTexts.setHint("Height");
-                g.setwhatshape("Cylinder");
+
                 break;
             case 6:
+                try{ g.setradius(Double.parseDouble(firstTexts.getText().toString())); } catch(NumberFormatException ex){ }
                 g.setanswer(g.getradius() * g.getradius() * g.getradius() * Math.PI * (4 / 3));
-                g.setradius(Double.parseDouble(firstTexts.getText().toString()));
-                firstTexts.setHint("Radius");
-                secondTexts.setVisibility(View.INVISIBLE);
-                g.setwhatshape("Sphere");
                 break;
             case 7:
+                try{ g.setradius(Double.parseDouble(firstTexts.getText().toString())); } catch(NumberFormatException ex){ }
+                try{  g.setheight(Double.parseDouble(secondTexts.getText().toString()));
+                } catch(NumberFormatException ex){ }
                 g.setanswer(Math.PI * g.getradius() * g.getradius() * g.getheight());
-                g.setradius(Double.parseDouble(firstTexts.getText().toString()));
-                g.setheight(Double.parseDouble(secondTexts.getText().toString()));
-                firstTexts.setHint("Radius");
-                secondTexts.setHint("Height");
-                g.setwhatshape("Cone");
+
                 break;
             case 8:
+                try{g.setside(Double.parseDouble(firstTexts.getText().toString()));
+                } catch(NumberFormatException ex){ }
                 g.setanswer(g.getside() * g.getside() * g.getside());
-                g.setside(Double.parseDouble(firstTexts.getText().toString()));
-                firstTexts.setHint("Side");
-                secondTexts.setVisibility(View.INVISIBLE);
-                g.setwhatshape("Cube");
                 break;
         }
     }

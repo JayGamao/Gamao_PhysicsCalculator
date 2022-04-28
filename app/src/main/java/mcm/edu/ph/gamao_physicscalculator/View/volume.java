@@ -57,53 +57,51 @@ public class volume extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.cylinder:
-                try{ g.setradius(Double.parseDouble(firstTexts.getText().toString())); } catch(NumberFormatException ex){ }
-                try{ g.setheight(Double.parseDouble(secondTexts.getText().toString())); } catch(NumberFormatException ex){ }
-                m.invisible2(sphere,cone,cylinder,cube,textView2);
-                m.showanswering(fillblanks, answeris, firstTexts, secondTexts, solve);
-                answer = (g.getradius() * g.getradius() * g.getheight() * Math.PI);
+                g.setsave(5);
+                m.saveArea(g,m,this);
                 firstTexts.setHint("Radius");
                 secondTexts.setHint("Height");
                 g.setwhatshape("Cylinder");
+                m.invisible2(sphere,cone,cylinder,cube,textView2);
+                m.showanswering(fillblanks, answeris, firstTexts, secondTexts, solve);
                 fillblanks.setText(g.getwhatshape());
-
                 break;
             case R.id.cube:
-
                 firstTexts.setHint("Side");
                 g.setwhatshape("Cube");
+                g.setsave(8);
+                m.saveArea(g,m,this);
                 m.invisible2(sphere,cone,cylinder,cube,textView2);
                 m.showanswering(fillblanks, answeris, firstTexts, secondTexts, solve);
-                secondTexts.setVisibility(View.INVISIBLE);
                 fillblanks.setText(g.getwhatshape());
-                try{g.setside(Double.parseDouble(firstTexts.getText().toString()));
-                } catch(NumberFormatException ex){ }
-                g.setanswer(g.getside() * g.getside() * g.getside());
+                secondTexts.setVisibility(View.INVISIBLE);
                 break;
             case R.id.sphere:
+                g.setsave(6);
                 firstTexts.setHint("Radius");
                 g.setwhatshape("Sphere");
+                m.saveArea(g,m,this);
                 m.invisible2(sphere,cone,cylinder,cube,textView2);
                 m.showanswering(fillblanks, answeris, firstTexts, secondTexts, solve);
-                secondTexts.setVisibility(View.INVISIBLE);
                 fillblanks.setText(g.getwhatshape());
-                try{ g.setradius(Double.parseDouble(firstTexts.getText().toString())); } catch(NumberFormatException ex){ }
-                g.setanswer(g.getradius() * g.getradius() * g.getradius() * Math.PI * (4 / 3));
+                secondTexts.setVisibility(View.INVISIBLE);
+
                 break;
             case R.id.cone:
                 firstTexts.setHint("Radius");
                 secondTexts.setHint("Height");
                 g.setwhatshape("Cone");
+                g.setsave(7);
+                m.saveArea(g,m,this);
                 m.invisible2(sphere,cone,cylinder,cube,textView2);
                 m.showanswering(fillblanks, answeris, firstTexts, secondTexts, solve);
                 fillblanks.setText(g.getwhatshape());
-                try{ g.setradius(Double.parseDouble(firstTexts.getText().toString())); } catch(NumberFormatException ex){ }
-                try{                 g.setheight(Double.parseDouble(secondTexts.getText().toString()));
-                } catch(NumberFormatException ex){ }
-                g.setanswer(Math.PI * g.getradius() * g.getradius() * g.getheight());
+
                 break;
             case R.id.solve:
-                answeris.setText("The Answer is "+ answer);
+                g.setformulas(g.getsave());
+                m.formulatypes(g, firstTexts, secondTexts,this);
+                answeris.setText("The Answer is "+ g.getanswer());
                 if (firstTexts.equals("")) {
                     firstTexts.setText("Unknown");
                 }

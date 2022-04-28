@@ -9,7 +9,7 @@
         android:id="@+id/answeris"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="231dp"
+        android:layout_marginBottom="144dp"
         android:text="Answer"
         android:textSize="40dp"
         android:textStyle="bold"

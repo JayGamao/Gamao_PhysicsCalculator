@@ -63,56 +63,54 @@ public class area extends AppCompatActivity implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.circle:
                 m.invisible(triangle, rectangle, circle, ellipse, textView3);
-                g.setformulas(1);
+                g.setsave(1);
+                g.setwhatshape("Circle");
+                firstTexts.setHint("Radius");
+                m.saveArea(g,m,this);
                 m.formulatypes(g, firstTexts, secondTexts, this);
                 m.showanswering(fillblanks, answeris, firstTexts, secondTexts, solve);
                 secondTexts.setVisibility(View.INVISIBLE);
-                g.setwhatshape("Circle");
-                g.setanswer(g.getradius() * g.getradius() * Math.PI);
-
                 fillblanks.setText(g.getwhatshape());
+
                 break;
             case R.id.triangle:
-                g.setanswer(g.getbase() * g.getheight() * 0.5);
-                try{ g.setbase(Double.parseDouble(firstTexts.getText().toString())); } catch(NumberFormatException ex){ }
-                try{ g.setheight(Double.parseDouble(secondTexts.getText().toString())); } catch(NumberFormatException ex){ }
+                g.setsave(2);
                 firstTexts.setHint("Base");
                 secondTexts.setHint("Height");
+                g.setwhatshape("Triangle");
+                m.saveArea(g,m,this);
                 m.invisible(triangle, rectangle, circle, ellipse, textView3);
                 m.showanswering(fillblanks, answeris, firstTexts, secondTexts, solve);
-                g.setwhatshape("Triangle");
                 fillblanks.setText(g.getwhatshape());
                 break;
             case R.id.rectangle:
-                fillblanks.setText(g.getwhatshape());
-                try{ g.setlength(Double.parseDouble(firstTexts.getText().toString())); } catch(NumberFormatException ex){ }
-                try{ g.setwidth(Double.parseDouble(secondTexts.getText().toString())); } catch(NumberFormatException ex){ }
-                g.setanswer(g.getlength() * g.getwidth());
+                g.setsave(4);
                 firstTexts.setHint("Length");
                 secondTexts.setHint("Width");
                 g.setwhatshape("Rectangle");
+                m.saveArea(g,m,this);
+                fillblanks.setText(g.getwhatshape());
+                g.setanswer(g.getlength() * g.getwidth());
                 fillblanks.setText(g.getwhatshape());
                 m.invisible(triangle, rectangle, circle, ellipse, textView3);
                 m.showanswering(fillblanks, answeris, firstTexts, secondTexts, solve);
+
                 break;
             case R.id.ellipse:
+                g.setsave(3);
+                firstTexts.setHint("Major Axis");
+                secondTexts.setHint("Minor Axis");
+                g.setwhatshape("Ellipse");
+                m.saveArea(g,m,this);
                 m.invisible(triangle, rectangle, circle, ellipse, textView3);
                 m.showanswering(fillblanks, answeris, firstTexts, secondTexts, solve);
                 fillblanks.setText(g.getwhatshape());
                 g.setanswer(g.getmajoraxis() * g.getminoraxis() * Math.PI);
-                try{ g.setmajoraxis(Double.parseDouble(firstTexts.getText().toString())); } catch(NumberFormatException ex){ }
-                try{ g.setminoraxis(Double.parseDouble(secondTexts.getText().toString())); } catch(NumberFormatException ex){ }
-                firstTexts.setHint("Major Axis");
-                secondTexts.setHint("Minor Axis");
-                g.setwhatshape("Ellipse");
+
                 break;
             case R.id.solve:
-                try{ g.setradius(Double.parseDouble(firstTexts.getText().toString()));
-                    g.setanswer(g.getradius() * g.getradius() * Math.PI);
-
-                } catch(NumberFormatException ex){
-
-                }
+                g.setformulas(g.getsave());
+                m.formulatypes(g, firstTexts, secondTexts,this);
                 fillblanks.setText(g.getwhatshape());
                 answeris.setText("The Answer is "+ g.getanswer());
                 Log.d(TAG, "formula 2");
