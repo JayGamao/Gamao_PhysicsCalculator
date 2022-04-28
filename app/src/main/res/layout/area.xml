@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/answeris"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="231dp"
+        android:text="Answer"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="invisible"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/secondText"
+        android:layout_width="87dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="92dp"
+        android:text=""
+        android:inputType="number"
+        android:visibility="invisible"
+        android:ems="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fillblank" />
+
+    <EditText
+        android:id="@+id/firstText"
+        android:layout_width="87dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="128dp"
+        android:text=""
+        android:inputType="number"
+        android:ems="10"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fillblank" />
+
+    <Button
+        android:id="@+id/solve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Solve"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstText" />
+
+    <TextView
+        android:id="@+id/fillblank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_marginTop="87dp"
+        android:text="Solve the*"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="83dp"
+        android:text="Choose an area"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ellipse"
+        android:layout_width="169dp"
+        android:layout_height="143dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circle"
+        app:srcCompat="@drawable/ellipse" />
+
+    <ImageView
+        android:id="@+id/circle"
+        android:layout_width="173dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/rectangle"
+        android:layout_width="232dp"
+        android:layout_height="244dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="228dp"
+        app:layout_constraintEnd_toStartOf="@+id/ellipse"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/triangle"
+        app:srcCompat="@drawable/rectangle" />
+
+    <ImageView
+        android:id="@+id/triangle"
+        android:layout_width="230dp"
+        android:layout_height="218dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/circle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:srcCompat="@drawable/triangle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
